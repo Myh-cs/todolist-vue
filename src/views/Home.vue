@@ -1,18 +1,23 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <TodoItem/>
+    <TodoList :dataSource="[...todolist]"/>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import TodoItem from '@/components/TodoItem.vue'; // @ is an alias to /src
+import { mapState } from "vuex";
+import Vue from "vue";
+import Component from "vue-class-component";
+import TodoList from "@/components/TodoList.vue"; // @ is an alias to /src
 
 @Component({
   components: {
-    TodoItem,
+    TodoList
   },
+  computed: {
+    ...mapState(["todolist"])
+  }
 })
 export default class Home extends Vue {}
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="item" :title="details">
     <div class="content">
-      <div class="title">这是测试啊</div>
+      <div class="title">{{title}}</div>
       <div class="time">结束时间: {{time}}</div>
     </div>
     <div @click="changeCheck" class="radio">{{ checked ? '●' : '○' }}</div>
@@ -9,24 +9,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop()
-  private title: string = '这是测试啊';
-
-  @Prop()
-  private details: string = '测试的描述啊，比较长的一段文字用浮窗形式展现';
-
-  @Prop()
-  private time: string = '2019-5-29 10:22:31';
-
-  private checked = false;
-
-  private changeCheck() {
-    this.checked = !this.checked;
+@Component({
+  props: {
+    title: String,
+    details: String,
+    time: String,
+    finished: Boolean
+  },
+  data() {
+    return {
+      checked: this.finished
+    };
+  },
+  methods: {
+    changeCheck() {
+      this.checked = !this.checked;
+    }
   }
+})
+export default class TodoItem extends Vue {
 }
 </script>
 

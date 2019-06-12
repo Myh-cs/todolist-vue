@@ -5,6 +5,11 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+// Vue.filter('timeFormat', function (value: Date) {
+//   if (!value) return ''
+//   return value;
+// })
+
 new Vue({
   router,
   store,
