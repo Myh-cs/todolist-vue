@@ -1,8 +1,17 @@
 <template>
   <div class="item">
     <div class="content">
-      <div class="title">标题: {{details.title}}</div>
-      <div class="details">详情: {{details.details}}</div>
+      <button @click="changeEdit">编辑</button>
+      <div class="title">
+        标题:
+        <input v-if="edit" type="text" v-model="details.title">
+        <span v-else>{{details.title}}</span>
+      </div>
+      <div class="details">
+        详情:
+        <textarea v-if="edit" name id cols="30" rows="10" v-model="details.details"/>
+        <span v-else>{{details.details}}</span>
+      </div>
       <div class="time">创建时间: {{details.create_time}}</div>
     </div>
     <div class="radio-container">
@@ -20,7 +29,7 @@ import { mapState } from "vuex";
 @Component({
   data() {
     const details = { ...this.getDetailsFromStore() };
-    return { details };
+    return { details, edit: false };
   },
   computed: {
     needSave() {
@@ -42,28 +51,12 @@ import { mapState } from "vuex";
     },
     saveChange() {
       this.$store.commit("editTodoItem", this.details);
+      this.edit = false;
+    },
+    changeEdit() {
+      this.edit = !this.edit;
     }
   }
 })
 export default class TodoDetails extends Vue {}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.item {
-  .content {
-    .title {
-    }
-    .details {
-    }
-    .time {
-    }
-  }
-  .radio {
-    &:hover {
-      cursor: pointer;
-      color: aqua;
-    }
-  }
-}
-</style>
