@@ -1,10 +1,20 @@
 <template>
   <div class="item" :title="details">
-    <div class="content">
+    <div class="content" @click="onClick">
       <div class="title">{{title}}</div>
-      <div class="time">结束时间: {{time}}</div>
+      <div class="time">创建时间: {{time}}</div>
     </div>
-    <div @click="changeCheck" class="radio">{{ checked ? '●' : '○' }}</div>
+    <div class="radio-container">
+      <label class="cursor-pointer" for="finished">{{finishedLabel}}</label>
+      <input
+        class="cursor-pointer"
+        type="checkbox"
+        name="finished"
+        id="finished"
+        :checked="finished"
+        @change.stop="onChange"
+      >
+    </div>
   </div>
 </template>
 
@@ -13,24 +23,28 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component({
   props: {
+    id: Number,
     title: String,
     details: String,
     time: String,
     finished: Boolean
   },
-  data() {
-    return {
-      checked: this.finished
-    };
-  },
   methods: {
-    changeCheck() {
-      this.checked = !this.checked;
+    onClick() {
+      this.$emit("click");
+    },
+    onChange(event) {
+      const finished = event.target.checked;
+      this.$emit("change", { id: this.id - 0, finished });
+    }
+  },
+  computed: {
+    finishedLabel() {
+      return this.finished ? "完成" : "未完成";
     }
   }
 })
-export default class TodoItem extends Vue {
-}
+export default class TodoItem extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -44,7 +58,6 @@ export default class TodoItem extends Vue {
   border: 1px solid #333;
   box-shadow: 0 0 0.3rem #333;
   font-size: 1.5rem;
-  cursor: pointer;
   &:hover {
     box-shadow: 0 0 0.5rem #333;
   }
@@ -52,27 +65,33 @@ export default class TodoItem extends Vue {
     display: flex;
     flex: 1 1;
     flex-flow: column;
+    cursor: pointer;
     .title {
+      width: 12rem;
+      padding: 0 1rem;
       flex: 1 1;
       font-size: 1.2rem;
       height: 2.4rem;
       line-height: 2.4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .time {
+      width: 12rem;
+      padding: 0 1rem;
       flex: 1 1;
       font-size: 0.8rem;
       height: 1.6rem;
       line-height: 1.6rem;
     }
   }
-  .radio {
-    flex: 0 0 2rem;
+  .radio-container {
+    flex: 0 0 5rem;
     line-height: 4rem;
-    font-size: 3rem;
+    font-size: 1rem;
     padding: 0 1rem;
-    &:hover {
+    .cursor-pointer {
       cursor: pointer;
-      color: aqua;
     }
   }
 }

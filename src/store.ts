@@ -2,33 +2,34 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
+const todolistString = localStorage.getItem('todolist') as string;
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-    todolist: [
-      {
-        id: 0,
-        weight: 0,
-        title: '练习vue',
-        details: '学习vue以至于可以快速参与项目',
-        finished: false,
-        create_time: '2019-5-29 10:46:32',
-        end_time: '2019-6-7 00:00:00',
-      },
-      {
-        id: 1,
-        weight: 0,
-        title: '练习vue1',
-        details: '学习vue以至于可以快速参与项目1',
-        finished: true,
-        create_time: '2019-5-29 10:46:32',
-        end_time: '2019-6-7 00:00:00',
-      },
-    ],
+    todolist: JSON.parse(todolistString) || [],
   },
   mutations: {
-
-  },
-  actions: {
+    addTodoItem(state, payload) {
+      state.todolist.unshift({
+        ...payload,
+        id: state.todolist.length ? state.todolist[state.todolist.length - 1].id + 1 : 0
+      });
+    },
+    editTodoItem(state, payload) {
+      const index = state.todolist.findIndex((val) => val.id === payload.id);
+      const oldValue = state.todolist.find((val) => val.id === payload.id);
+      state.todolist.splice(index, 1);
+      state.todolist.unshift({ ...oldValue, ...payload });
+    },
+    deleteTodoItem(state, payload) {
+      const index = state.todolist.findIndex((val) => val.id === payload.id);
+      state.todolist.splice(index, 1);
+    },
   },
 });
+
+store.watch((state) => state.todolist, () => {
+  localStorage.setItem('todolist', JSON.stringify(store.state.todolist));
+});
+
+export default store;

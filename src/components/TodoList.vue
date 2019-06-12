@@ -1,12 +1,15 @@
 <template>
   <div class="todolist">
     <TodoItem
-      v-for="(item, index) in dataSource"
-      :key="index"
+      v-for="(item) in dataSource"
+      :key="item.id"
+      :id="item.id"
       :title="item.title"
       :details="item.details"
       :time="item.create_time"
       :finished="item.finished"
+      @click="toDetails(item.id)"
+      @change="changeFinished"
     />
   </div>
 </template>
@@ -18,7 +21,9 @@ import TodoItem from "./TodoItem.vue";
 @Component({
   components: { TodoItem },
   props: {
-    dataSource: Array
+    dataSource: Array,
+    toDetails: Function,
+    changeFinished: Function
   }
 })
 export default class TodoList extends Vue {}

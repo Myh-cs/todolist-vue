@@ -21,13 +21,13 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "AddTodo" */ './views/AddTodo.vue'),
     },
-    // {
-    //   path: '/details/:id',
-    //   name: 'TodoDetails',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (TodoDetails.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "TodoDetails" */ './views/TodoDetails.vue'),
-    // },
+    {
+      path: '/details/:id',
+      name: 'TodoDetails',
+      // route level code-splitting
+      // this generates a separate chunk (TodoDetails.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "TodoDetails" */ './views/TodoDetails.vue'),
+    },
   ],
 });

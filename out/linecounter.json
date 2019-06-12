@@ -1,0 +1,160 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.2",
+    "workspace": "/Users/tw/Workplace/todo-list",
+    "linecount": [
+        {
+            "version": "0.2.2",
+            "counttime": "2019-06-12 15:16:18",
+            "filesum": 6,
+            "codesum": 111,
+            "commentsum": 9,
+            "blanksum": 9,
+            "statistics": {
+                ".ts": {
+                    "code": 83,
+                    "comment": 9,
+                    "blank": 8
+                },
+                ".vue": {
+                    "code": 28,
+                    "comment": 0,
+                    "blank": 1
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src/App.vue"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 4,
+                    "filename": "src/main.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 3,
+                    "filename": "src/router.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 2,
+                    "filename": "src/shims-tsx.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/shims-vue.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "src/store.ts"
+                }
+            ]
+        },
+        {
+            "version": "0.2.2",
+            "counttime": "2019-06-12 15:17:31",
+            "filesum": 12,
+            "codesum": 345,
+            "commentsum": 10,
+            "blanksum": 25,
+            "statistics": {
+                ".ts": {
+                    "code": 83,
+                    "comment": 9,
+                    "blank": 8
+                },
+                ".vue": {
+                    "code": 262,
+                    "comment": 1,
+                    "blank": 17
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src/App.vue"
+                },
+                {
+                    "filename": "src/assets/logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 3,
+                    "code": 84,
+                    "comment": 0,
+                    "filename": "src/components/TodoItem.vue"
+                },
+                {
+                    "blank": 3,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src/components/TodoList.vue"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 4,
+                    "filename": "src/main.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 3,
+                    "filename": "src/router.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 2,
+                    "filename": "src/shims-tsx.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/shims-vue.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "src/store.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src/views/AddTodo.vue"
+                },
+                {
+                    "blank": 2,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "src/views/Home.vue"
+                },
+                {
+                    "blank": 3,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "src/views/TodoDetails.vue"
+                }
+            ]
+        }
+    ]
+}
