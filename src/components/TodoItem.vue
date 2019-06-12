@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   props: {
@@ -32,28 +32,28 @@ import { Component, Prop, Vue } from "vue-property-decorator";
     details: String,
     time: String,
     finished: Boolean,
-    empty: Boolean
+    empty: Boolean,
   },
   methods: {
     onClick() {
-      this.$emit("click");
+      this.$emit('click');
     },
     emptyClick() {
-      this.$emit("emptyClick");
+      this.$emit('emptyClick');
     },
     deleteClick() {
-      this.$emit("deleteClick");
+      this.$emit('deleteClick');
     },
     onChange(event) {
       const finished = event.target.checked;
-      this.$emit("change", { id: this.id - 0, finished });
-    }
+      this.$emit('change', { id: this.id - 0, finished });
+    },
   },
   computed: {
     finishedLabel() {
-      return this.finished ? "完成" : "未完成";
-    }
-  }
+      return this.finished ? '完成' : '未完成';
+    },
+  },
 })
 export default class TodoItem extends Vue {}
 </script>

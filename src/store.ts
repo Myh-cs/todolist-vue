@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     addTodoItem(state, payload) {
       state.todolist.unshift({
         ...payload,
-        id: state.todolist.length ? state.todolist[state.todolist.length - 1].id + 1 : 0
+        id: state.todolist.length ? state.todolist[state.todolist.length - 1].id + 1 : 0,
       });
     },
     editTodoItem(state, payload) {

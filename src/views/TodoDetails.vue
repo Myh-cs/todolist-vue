@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { mapState } from "vuex";
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { mapState } from 'vuex';
 
 @Component({
   data() {
@@ -39,24 +39,24 @@ import { mapState } from "vuex";
       return storeDetailsString !== localDetailsString;
     },
     finishedLabel() {
-      return this.details.finished ? "完成" : "未完成";
-    }
+      return this.details.finished ? '完成' : '未完成';
+    },
   },
   methods: {
     getDetailsFromStore() {
       const { todolist } = this.$store.state;
       const { id } = this.$route.params;
-      const details = todolist.find(val => val.id === id - 0);
+      const details = todolist.find((val) => val.id === id - 0);
       return details;
     },
     saveChange() {
-      this.$store.commit("editTodoItem", this.details);
+      this.$store.commit('editTodoItem', this.details);
       this.edit = false;
     },
     changeEdit() {
       this.edit = !this.edit;
-    }
-  }
+    },
+  },
 })
 export default class TodoDetails extends Vue {}
 </script>

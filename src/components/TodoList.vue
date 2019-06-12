@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import TodoItem from "./TodoItem.vue";
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import TodoItem from './TodoItem.vue';
 
 @Component({
   components: { TodoItem },
@@ -27,8 +27,8 @@ import TodoItem from "./TodoItem.vue";
     toDetails: Function,
     toAddTodo: Function,
     changeFinished: Function,
-    deleteClick: Function
-  }
+    deleteClick: Function,
+  },
 })
 export default class TodoList extends Vue {}
 </script>
