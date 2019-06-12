@@ -1,10 +1,6 @@
 <template>
-  <div class="item" :title="details">
-    <div class="content" @click="onClick">
-      <div class="title">{{title}}</div>
-      <div class="time">创建时间: {{time}}</div>
-    </div>
-    <div class="radio-container">
+  <div class="item" :title="details" @click="emptyClick">
+    <div v-if="!empty" class="action-container">
       <label class="cursor-pointer" for="finished">{{finishedLabel}}</label>
       <input
         class="cursor-pointer"
@@ -15,6 +11,14 @@
         @change.stop="onChange"
       >
     </div>
+    <div v-if="!empty" class="content" @click="onClick">
+      <div class="title">{{title}}</div>
+      <div class="time">创建时间: {{time}}</div>
+    </div>
+    <div v-if="!empty" class="close-container" @click="onClick">
+      <button v-if="!empty" class="close" @click="deleteClick">×</button>
+    </div>
+    <div v-else class="empty">+</div>
   </div>
 </template>
 
@@ -27,11 +31,18 @@ import { Component, Prop, Vue } from "vue-property-decorator";
     title: String,
     details: String,
     time: String,
-    finished: Boolean
+    finished: Boolean,
+    empty: Boolean
   },
   methods: {
     onClick() {
       this.$emit("click");
+    },
+    emptyClick() {
+      this.$emit("emptyClick");
+    },
+    deleteClick() {
+      this.$emit("deleteClick");
     },
     onChange(event) {
       const finished = event.target.checked;
@@ -85,13 +96,37 @@ export default class TodoItem extends Vue {}
       line-height: 1.6rem;
     }
   }
-  .radio-container {
+  .empty {
+    width: 100%;
+    height: 100%;
+    line-height: 4rem;
+    text-align: center;
+  }
+  .action-container {
     flex: 0 0 5rem;
     line-height: 4rem;
     font-size: 1rem;
     padding: 0 1rem;
+    border-right: 1px solid #333;
     .cursor-pointer {
       cursor: pointer;
+    }
+  }
+  .close-container {
+    flex: 0 0 2rem;
+    line-height: 4rem;
+    font-size: 1rem;
+    .close {
+      cursor: pointer;
+      line-height: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 1.5rem;
+      background: #f56c6c;
+      padding: 0;
+      border: none;
+      border-radius: 0.3rem;
+      color: #fff;
     }
   }
 }

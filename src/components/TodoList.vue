@@ -10,7 +10,9 @@
       :finished="item.finished"
       @click="toDetails(item.id)"
       @change="changeFinished"
+      @deleteClick="deleteClick(item.id)"
     />
+    <TodoItem empty @emptyClick="toAddTodo()"/>
   </div>
 </template>
 
@@ -23,7 +25,9 @@ import TodoItem from "./TodoItem.vue";
   props: {
     dataSource: Array,
     toDetails: Function,
-    changeFinished: Function
+    toAddTodo: Function,
+    changeFinished: Function,
+    deleteClick: Function
   }
 })
 export default class TodoList extends Vue {}

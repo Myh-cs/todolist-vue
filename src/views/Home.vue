@@ -1,7 +1,14 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <TodoList :dataSource="sortTodoList" :toDetails="toDetails" :changeFinished="changeFinished"/>
+    <div class="list-container"></div>
+    <TodoList
+      :dataSource="sortTodoList"
+      :toDetails="toDetails"
+      :toAddTodo="toAddTodo"
+      :changeFinished="changeFinished"
+      :deleteClick="deleteClick"
+    />
   </div>
 </template>
 
@@ -26,6 +33,12 @@ import TodoList from "@/components/TodoList.vue"; // @ is an alias to /src
   methods: {
     toDetails(id) {
       this.$router.push(`/details/${id}`);
+    },
+    toAddTodo(id) {
+      this.$router.push("/create");
+    },
+    deleteClick(id) {
+      this.$store.commit("deleteTodoItem", { id });
     },
     changeFinished({ id, finished }) {
       this.$store.commit("editTodoItem", { id, finished });
