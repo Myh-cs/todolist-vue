@@ -15,28 +15,36 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import moment from 'moment';
+import Vue from 'vue';
+import dayjs from 'dayjs';
 
-@Component
-export default class AddTodo extends Vue {
-  private formItem = {
-    weight: 0,
-    title: '',
-    details: '',
-    finished: false,
-    create_time: '',
-    end_time: '',
-  };
-  private async addTodo() {
-    await this.$store.commit('addTodoItem', {
-      ...this.formItem,
-      create_time: moment().format('YYYY-MM-DD HH:mm:ss'),
-      end_time: '',
-    });
-    this.$router.push({ name: 'TodoList' });
-  }
-}
+
+export default Vue.extend(
+  {
+    data() {
+      return {
+        formItem: {
+          weight: 0,
+          title: '',
+          details: '',
+          finished: false,
+          create_time: '',
+          end_time: '',
+        },
+      };
+    },
+    methods: {
+      addTodo() {
+        this.$store.commit('addTodoItem', {
+          ...this.formItem,
+          create_time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+          end_time: '',
+        });
+        this.$router.push({ name: 'TodoList' });
+      },
+    },
+  },
+);
 </script>
 
 <style lang="scss" scoped>

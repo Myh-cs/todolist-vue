@@ -2,7 +2,7 @@
   <div class="todolist">
     <TodoItem
       v-for="(item) in dataSource"
-      :key="item.id"
+      :key="item.id+item.title+item.create_time"
       :id="item.id"
       :title="item.title"
       :details="item.details"
@@ -30,7 +30,7 @@ import TodoItem from './TodoItem.vue';
     deleteClick: Function,
   },
 })
-export default class TodoList extends Vue {}
+export default class TodoList extends Vue { }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
