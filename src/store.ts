@@ -16,13 +16,13 @@ const store = new Vuex.Store({
       });
     },
     editTodoItem(state, payload) {
-      const index = state.todolist.findIndex((val) => val.id === payload.id);
-      const oldValue = state.todolist.find((val) => val.id === payload.id);
+      const index = state.todolist.findIndex((val: { id: number }) => val.id === payload.id);
+      const oldValue = state.todolist.find((val: { id: number }) => val.id === payload.id);
       state.todolist.splice(index, 1);
       state.todolist.unshift({ ...oldValue, ...payload });
     },
     deleteTodoItem(state, payload) {
-      const index = state.todolist.findIndex((val) => val.id === payload.id);
+      const index = state.todolist.findIndex((val: { id: number }) => val.id === payload.id);
       state.todolist.splice(index, 1);
     },
   },

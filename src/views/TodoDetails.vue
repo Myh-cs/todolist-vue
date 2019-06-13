@@ -23,40 +23,46 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 import { mapState } from 'vuex';
 
-@Component({
+export default Vue.extend({
   data() {
-    const details = { ...this.getDetailsFromStore() };
+    const { todolist } = this.$store.state;
+    const { id } = this.$route.params;
+    const details = {
+      ...todolist.find((val: { id: number }) => val.id === parseInt(id, 10)),
+    };
+    // const details = { ...this.getDetailsFromStore() };
     return { details, edit: false };
   },
   computed: {
-    needSave() {
+    needSave(): boolean {
       const details = this.getDetailsFromStore();
       const storeDetailsString = JSON.stringify(details);
       const localDetailsString = JSON.stringify(this.details);
       return storeDetailsString !== localDetailsString;
     },
-    finishedLabel() {
+    finishedLabel(): string {
       return this.details.finished ? '完成' : '未完成';
     },
   },
   methods: {
-    getDetailsFromStore() {
+    getDetailsFromStore(): object {
       const { todolist } = this.$store.state;
       const { id } = this.$route.params;
-      const details = todolist.find((val) => val.id === id - 0);
+      const details = todolist.find(
+        (val: { id: number }) => val.id === parseInt(id, 10),
+      );
       return details;
     },
-    saveChange() {
+    saveChange(): void {
       this.$store.commit('editTodoItem', this.details);
       this.edit = false;
     },
-    changeEdit() {
+    changeEdit(): void {
       this.edit = !this.edit;
     },
   },
-})
-export default class TodoDetails extends Vue {}
+});
 </script>

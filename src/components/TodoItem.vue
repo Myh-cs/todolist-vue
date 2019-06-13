@@ -25,7 +25,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component({
+export default Vue.extend({
   props: {
     id: Number,
     title: String,
@@ -44,18 +44,20 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
     deleteClick() {
       this.$emit('deleteClick');
     },
-    onChange(event) {
-      const finished = event.target.checked;
+    onChange({
+      target: { checked: finished },
+    }: {
+      target: { checked: boolean };
+    }) {
       this.$emit('change', { id: this.id - 0, finished });
     },
   },
   computed: {
-    finishedLabel() {
+    finishedLabel(): string {
       return this.finished ? '完成' : '未完成';
     },
   },
-})
-export default class TodoItem extends Vue {}
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
