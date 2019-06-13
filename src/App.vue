@@ -5,7 +5,7 @@
       <router-link to="/create">AddTodo</router-link>
     </div>
     <div class="list-container">
-      <router-view/>
+      <router-view :key="$route.fullPath"/>
     </div>
   </div>
 </template>

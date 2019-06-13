@@ -2,72 +2,18 @@
 EXTENSION NAME : linecounter
 EXTENSION VERSION : 0.2.2
 -------------------------------------------------------------------------------
-count time : 2019-06-12 15:16:18
-count workspace : /Users/tw/Workplace/todo-list
-total files : 6
-total code lines : 111
-total comment lines : 9
-total blank lines : 9
-
-    statistics
-   |      extension|     total code|  total comment|    total blank|percent|
-   -------------------------------------------------------------------------
-   |            .ts|             83|              9|              8|     75|
-   |           .vue|             28|              0|              1|     25|
-   -------------------------------------------------------------------------
-src/App.vue, code is 28, comment is 0, blank is 1.
-src/main.ts, code is 10, comment is 4, blank is 3.
-src/router.ts, code is 17, comment is 3, blank is 2.
-src/shims-tsx.d.ts, code is 10, comment is 2, blank is 1.
-src/shims-vue.d.ts, code is 4, comment is 0, blank is 0.
-src/store.ts, code is 42, comment is 0, blank is 2.
-===============================================================================
-===============================================================================
-EXTENSION NAME : linecounter
-EXTENSION VERSION : 0.2.2
--------------------------------------------------------------------------------
-count time : 2019-06-12 15:17:31
+count time : 2019-06-13 16:33:31
 count workspace : /Users/tw/Workplace/todo-list
 total files : 12
-total code lines : 345
-total comment lines : 10
+total code lines : 435
+total comment lines : 11
 total blank lines : 25
 
     statistics
    |      extension|     total code|  total comment|    total blank|percent|
    -------------------------------------------------------------------------
-   |            .ts|             83|              9|              8|     24|
-   |           .vue|            262|              1|             17|     76|
-   -------------------------------------------------------------------------
-src/App.vue, code is 28, comment is 0, blank is 1.
-src/assets/logo.png, it is a binary file.
-src/components/TodoItem.vue, code is 84, comment is 0, blank is 3.
-src/components/TodoList.vue, code is 31, comment is 0, blank is 3.
-src/main.ts, code is 10, comment is 4, blank is 3.
-src/router.ts, code is 17, comment is 3, blank is 2.
-src/shims-tsx.d.ts, code is 10, comment is 2, blank is 1.
-src/shims-vue.d.ts, code is 4, comment is 0, blank is 0.
-src/store.ts, code is 42, comment is 0, blank is 2.
-src/views/AddTodo.vue, code is 27, comment is 0, blank is 5.
-src/views/Home.vue, code is 29, comment is 1, blank is 2.
-src/views/TodoDetails.vue, code is 63, comment is 0, blank is 3.
-===============================================================================
-===============================================================================
-EXTENSION NAME : linecounter
-EXTENSION VERSION : 0.2.2
--------------------------------------------------------------------------------
-count time : 2019-06-13 10:55:10
-count workspace : /Users/tw/Workplace/todo-list
-total files : 12
-total code lines : 428
-total comment lines : 11
-total blank lines : 24
-
-    statistics
-   |      extension|     total code|  total comment|    total blank|percent|
-   -------------------------------------------------------------------------
-   |           .vue|            356|              2|             14|     83|
    |            .ts|             72|              9|             10|     17|
+   |           .vue|            363|              2|             15|     83|
    -------------------------------------------------------------------------
 src/App.vue, code is 34, comment is 0, blank is 2.
 src/assets/logo.png, it is a binary file.
@@ -78,7 +24,7 @@ src/router.ts, code is 17, comment is 3, blank is 2.
 src/shims-tsx.d.ts, code is 10, comment is 2, blank is 1.
 src/shims-vue.d.ts, code is 4, comment is 0, blank is 0.
 src/store.ts, code is 31, comment is 0, blank is 4.
-src/views/AddTodo.vue, code is 47, comment is 0, blank is 2.
+src/views/AddTodo.vue, code is 54, comment is 0, blank is 3.
 src/views/Home.vue, code is 44, comment is 1, blank is 2.
 src/views/TodoDetails.vue, code is 64, comment is 1, blank is 2.
 ===============================================================================
