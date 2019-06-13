@@ -1,5 +1,13 @@
 # todo-list
 
+## vue 学习练手项目
+
+使用`vue vuex vue-router ts vue-cli3 `
+
+仍存在一些改进的地方 vue vuex 与ts的结合部分还不是很友好
+
+也未能充分发挥出来ts的优势 反而有点鸡肋 需要继续再学习ts相关实践和知识
+
 ## Project setup
 ```
 yarn install
@@ -37,3 +45,4 @@ yarn run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
