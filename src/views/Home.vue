@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <div class="list-container"></div>
     <TodoList
       :dataSource="sortTodoList"
       :toDetails="toDetails"
@@ -14,8 +12,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapState } from 'vuex';
-import Component from 'vue-class-component';
 import TodoList from '@/components/TodoList.vue'; // @ is an alias to /src
 
 export default Vue.extend({
