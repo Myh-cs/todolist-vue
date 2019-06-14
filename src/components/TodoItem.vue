@@ -15,7 +15,7 @@
       <div class="title">{{title}}</div>
       <div class="time">创建时间: {{time}}</div>
     </div>
-    <div v-if="!empty" class="close-container" @click="onClick">
+    <div v-if="!empty" class="close-container">
       <button v-if="!empty" class="close" @click="deleteClick">×</button>
     </div>
     <div v-else class="empty">+</div>
