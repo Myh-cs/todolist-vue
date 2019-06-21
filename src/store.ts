@@ -1,11 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-const IDcreater = () => {
-  const radom = Math.random();
-  const dateNumber = new Date().valueOf();
-  return parseInt((radom * dateNumber).toFixed(0), 10);
-};
 
 Vue.use(Vuex);
 const todolistString = localStorage.getItem('todolist') as string;
