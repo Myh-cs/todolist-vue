@@ -1,22 +1,30 @@
 <template>
   <div class="home">
-    <TodoList
-      :dataSource="sortTodoList"
-      :toDetails="toDetails"
-      :toAddTodo="toAddTodo"
-      :changeFinished="changeFinished"
-      :deleteClick="deleteClick"
-    />
+    <div class="todolist">
+      <TodoItem
+        v-for="(item) in sortTodoList"
+        :key="item.id+item.title+item.create_time"
+        :id="item.id"
+        :title="item.title"
+        :details="item.details"
+        :time="item.create_time"
+        :finished="item.finished"
+        @click="toDetails(item.id)"
+        @change="changeFinished"
+        @deleteClick="deleteClick(item.id)"
+      />
+      <TodoItem empty @emptyClick="toAddTodo()"/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import TodoList from '@/components/TodoList.vue'; // @ is an alias to /src
+import TodoItem from '@/components/TodoItem.vue'; // @ is an alias to /src
 
 export default Vue.extend({
   components: {
-    TodoList,
+    TodoItem,
   },
   computed: {
     todolist(): Array<{ finished: boolean }> {
