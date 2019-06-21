@@ -39,7 +39,10 @@ export default Vue.extend({
       this.$emit('click');
     },
     emptyClick() {
-      this.$emit('emptyClick');
+      if (this.empty) {
+        return this.$emit('emptyClick');
+      }
+      return;
     },
     deleteClick() {
       this.$emit('deleteClick');
@@ -49,7 +52,7 @@ export default Vue.extend({
     }: {
       target: { checked: boolean };
     }) {
-      this.$emit('change', { id: this.id - 0, finished });
+      this.$emit('change', { id: this.id, finished });
     },
   },
   computed: {
