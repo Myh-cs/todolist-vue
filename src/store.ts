@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+const IDcreater = () => {
+  const radom = Math.random();
+  const dateNumber = new Date().valueOf();
+  return parseInt((radom * dateNumber).toFixed(0), 10);
+};
+
 Vue.use(Vuex);
 const todolistString = localStorage.getItem('todolist') as string;
 
@@ -12,7 +18,7 @@ const store = new Vuex.Store({
     addTodoItem(state, payload) {
       state.todolist.unshift({
         ...payload,
-        id: state.todolist.length ? state.todolist[state.todolist.length - 1].id + 1 : 0,
+        id: new Date().valueOf(),
       });
     },
     editTodoItem(state, payload) {
