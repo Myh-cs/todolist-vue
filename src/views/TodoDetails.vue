@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="details-container">
     <div class="content">
       <button @click="changeEdit">编辑</button>
       <div class="title">

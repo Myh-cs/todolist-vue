@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="addTodo">
     <h1>Add Todo</h1>
     <div class="form-item">
       <label class="label" for>标题:</label>
