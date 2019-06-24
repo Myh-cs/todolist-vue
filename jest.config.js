@@ -35,5 +35,5 @@ module.exports = {
     }
   },
   "collectCoverage": true,
-  "collectCoverageFrom": ["src/**/*.{js,vue}", "!**/node_modules/**", "!**/tests/**"]
+  "collectCoverageFrom": ["src/**/*.{js,vue}","src/store.ts", "!**/node_modules/**", "!**/tests/**"]
 }
