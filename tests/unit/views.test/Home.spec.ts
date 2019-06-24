@@ -65,11 +65,9 @@ describe('Views: Home.vue', () => {
     const warper = shallowMount(Home, {router, store, localVue });
     warper.vm.$nextTick().then(
       () => {
-    expect(warper.find('span').text()).toBe('value');
-    done();
-      }
-    )
-
+        expect(warper.find('span').text()).toBe('value');
+        done();
+    });
   });
   it('render div.home when passed', () => {
     const warper = shallowMount(Home, { router, store, localVue });
