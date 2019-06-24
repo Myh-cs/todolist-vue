@@ -1,9 +1,12 @@
+
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import TodoItem from '@/components/TodoItem.vue';
-
+jest.mock('axios', () => ({
+  get: jest.fn(() => Promise.resolve({data: 'value'})),
+}));
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueRouter);
@@ -58,6 +61,16 @@ beforeEach(() => {
 });
 
 describe('Views: Home.vue', () => {
+  it('axios render test', (done) => {
+    const warper = shallowMount(Home, {router, store, localVue });
+    warper.vm.$nextTick().then(
+      () => {
+    expect(warper.find('span').text()).toBe('value');
+    done();
+      }
+    )
+
+  });
   it('render div.home when passed', () => {
     const warper = shallowMount(Home, { router, store, localVue });
     expect(warper.contains('.home')).toBe(true);
