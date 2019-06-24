@@ -34,7 +34,9 @@ export default Vue.extend({
     }
   },
   mounted(){
-    axios.get('/api/test').then((res)=>{console.log(res);this.aData=res.data})
+    axios.get('/api/test').then((res)=>{console.log(res);this.aData=res.data}).catch(()=>{
+      this.aData='error catch';
+    })
   },
   computed: {
     todolist(): Array<{ finished: boolean }> {
