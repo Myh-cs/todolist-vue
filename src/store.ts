@@ -12,13 +12,7 @@ export interface TodoItem {
   create_time?: string;
   end_time?: string;
 }
-export interface TodoItemWithId {
-  weight?: number;
-  title?: string;
-  details?: string;
-  finished?: boolean;
-  create_time?: string;
-  end_time?: string;
+export interface TodoItemWithId extends TodoItem {
   id?: number;
 }
 
