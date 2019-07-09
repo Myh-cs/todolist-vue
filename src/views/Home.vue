@@ -14,7 +14,7 @@
         @deleteClick="deleteClick(item.id)"
       />
       <TodoItem empty @emptyClick="toAddTodo()"/>
-      <span>{{aData}}/{{aData1}}/{{aData2}}</span>
+      <span>{{aData}}</span>
     </div>
   </div>
 </template>
@@ -36,13 +36,13 @@ export default Vue.extend({
     };
   },
   mounted() {
-    axios.get('/api/test').then((res) => {console.log(res); this.aData = res.data; }).catch(() => {
+    axios.get('/api/test').then((res) => { this.aData = res.data; }).catch(() => {
       this.aData = 'error catch';
     });
-    axios.get('/api/test2').then((res) => {console.log(res); this.aData1 = res.data; }).catch(() => {
+    axios.get('/api/test2').then((res) => { this.aData1 = res.data; }).catch(() => {
       this.aData1 = 'error catch';
     });
-    axios.get('/api/test3').then((res) => {console.log(res); this.aData2 = res.data; }).catch(() => {
+    axios.get('/api/test3').then((res) => { this.aData2 = res.data; }).catch(() => {
       this.aData2 = 'error catch';
     });
   },
